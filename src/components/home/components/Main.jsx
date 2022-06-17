@@ -6,7 +6,11 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 const Main = () => {
+    const [state, setState] = useState('focus');
 
+    const handleState = (e) => {
+        setState(e.target.value)
+    }
     return (
         <Container >
             <Box marginY={2}>
@@ -39,12 +43,12 @@ const Main = () => {
 
                     {(state === 'focus') ? (
                         <>
-                            <CustomTextField label="Add Time" variant="outlined" size='small' name='focus' onChange={handleChange} />
-                            {/* <CustomTextField label="Add a Title" variant="outlined" size='small' name='title' onChange={handleChange} /> */}
+                            <CustomTextField label="Add Focus Time" variant="outlined" size='small' name='focus' />
+                            <CustomTextField label="Add a Title" variant="outlined" size='small' name='title' />
                         </>
                     ) : (
                         <>
-                            <CustomTextField label="Add Time" variant="outlined" size='small' name='break' onChange={handleChange} />
+                            <CustomTextField label="Add Break Time" variant="outlined" size='small' name='break' />
                         </>
                     )}
                 </Box>
